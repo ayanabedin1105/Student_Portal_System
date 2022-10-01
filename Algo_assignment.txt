@@ -1,0 +1,299 @@
+/*
+C Program to create 4 list storing student data of Higher Diploma in Computing and the Master's Qualifiers.
+The sorting criteria is used is Bubblesort.
+
+Author - Ayan Abedin (D19125792)
+Date - 20/0/2021
+Compiler - Dev C++, GDB Compiler
+*/
+#include <stdio.h>
+#include <string.h>
+#define LENGTH 20
+#define SIZE_1 13
+#define SIZE_2 9
+#define SIZE_3 14
+#define SIZE_4 6
+
+//Structure template
+struct student
+{
+	char name[LENGTH];
+}
+
+temp, temp1, temp2, temp3;
+
+int main()
+{
+	//structure variables
+	struct student DT265A[SIZE_1];
+	struct student DT265C[SIZE_2];
+	struct student DT265B[SIZE_3];
+	struct student DT8900[SIZE_4];
+	struct student merge[100];
+
+	int i, j, k, l, m, n, q, r, s, index = 0;
+	int choice, found = 0;
+	char search_name[40];
+
+	//DT265A Student names
+	strcpy(DT265A[0].name, "Bansal");	//1
+	strcpy(DT265A[1].name, "Lorenzen");	//2
+	strcpy(DT265A[2].name, "Bucholtz");	//3
+	strcpy(DT265A[3].name, "Marko");	//4
+	strcpy(DT265A[4].name, "Richard");	//5
+	strcpy(DT265A[5].name, "Traversini");	//6
+	strcpy(DT265A[6].name, "Joshi");	//7
+	strcpy(DT265A[7].name, "Bogdanovic");	//8
+	strcpy(DT265A[8].name, "Daubney");	//9
+	strcpy(DT265A[9].name, "Scrivenor");	//10
+	strcpy(DT265A[10].name, "Andries");	//11
+	strcpy(DT265A[11].name, "Jewel");	//12
+	strcpy(DT265A[12].name, "Karpati");	//13
+
+	//DT265C Student names
+	strcpy(DT265C[0].name, "Collins");	//1
+	strcpy(DT265C[1].name, "Mohammed");	//2
+	strcpy(DT265C[2].name, "Ueda");	//3
+	strcpy(DT265C[3].name, "Sauber");	//4
+	strcpy(DT265C[4].name, "Hino");	//5
+	strcpy(DT265C[5].name, "Kanda");	//6
+	strcpy(DT265C[6].name, "Flynn");	//7
+	strcpy(DT265C[7].name, "Reese");	//8
+	strcpy(DT265C[8].name, "Langlais");	//9
+
+	//DT265B Student names
+	strcpy(DT265B[0].name, "Vincce");	//1
+	strcpy(DT265B[1].name, "Beck");	//2
+	strcpy(DT265B[2].name, "Jordan");	//3
+	strcpy(DT265B[3].name, "Ahearn");	//4
+	strcpy(DT265B[4].name, "Soler");	//5
+	strcpy(DT265B[5].name, "Hickey");	//6
+	strcpy(DT265B[6].name, "Howe");	//7
+	strcpy(DT265B[7].name, "Obando");	//8
+	strcpy(DT265B[8].name, "Dwight");	//9
+	strcpy(DT265B[9].name, "Floinn");	//10
+	strcpy(DT265B[10].name, "Daniel");	//11
+	strcpy(DT265B[11].name, "Brinkerhoff");	//12
+	strcpy(DT265B[12].name, "Vukovic");	//13
+	strcpy(DT265B[13].name, "Rameckers");	//14
+
+	//DT8900 Student names 
+	strcpy(DT8900[0].name, "Nikolaev");	//1
+	strcpy(DT8900[1].name, "Sharma");	//2
+	strcpy(DT8900[2].name, "Nepi");	//3
+	strcpy(DT8900[3].name, "Aarle");	//4
+	strcpy(DT8900[4].name, "Grunewald");	//5
+	strcpy(DT8900[5].name, "Potena");	//6
+
+	/*-------------------------------------DT265A------------------------------------------*/
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+
+	//Printing the outputs
+	do {
+		printf("\n\n*******Welcome to Student Program.*******\n");
+		printf("\n1.Display the four lists.");
+		printf("\n2.Display the full list sorted by surname.");
+		printf("\n3.Display full time students.");
+		printf("\n4.Search for a specific student by surname.");
+		printf("\nPress '0' to exit.");
+		printf("\nEnter your choice (0-5): ");
+
+		scanf("%d", &choice);
+
+		//Switch case
+		switch (choice)
+		{
+			case 1:
+				{
+					/*------------------------For DT265A students-------------------------*/
+					printf("\n\nDT265A - part-time Higher Diploma.");
+
+					for (i = 0; i < SIZE_1; i++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT265A[i].name);
+					}	//end for  
+					printf("\n\t+----------+");
+
+					/*-------------------------------------DT265C------------------------------------------*/
+					////////////////////////////////////////////////////////////////////////////////////////////
+					/*--------------------------------------------*/
+					printf("\n\n\nDT265C - part-time Master's Qualifier.");
+
+					for (k = 0; k < SIZE_2; k++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT265C[k].name);
+					}	//end for  
+					printf("\n\t+----------+");
+
+					/*-------------------------------------DT265B------------------------------------------*/
+					//////////////////////////////////////////////////////////////////////////////////////////////////////////
+					/*--------------------------------------------*/
+					printf("\n\n\nDT265B - full-time Master's Qualifiers.");
+					//Sorted Data after rearragement
+
+					for (m = 0; m < SIZE_3; m++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT265B[m].name);
+					}	//end for  
+					printf("\n\t+----------+");
+
+					/*-------------------------------------DT8900------------------------------------------*/
+					/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					/*--------------------------------------------*/
+					printf("\n\n\nDT8900 - full-time International Master's Qualifiers.");
+
+					for (q = 0; q < SIZE_4; q++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT8900[q].name);
+					}	//end for
+					printf("\n\t+----------+");
+
+					break;
+				}	//end case 1
+
+			case 2:
+				{
+					//To display the whole combined list
+					/*-------------------------------------------------------------*/
+					//Combining the Structures
+
+					printf("\nThe Full list (unsorted) of Students is: ");
+					for (i = 0; i < 13; i++)
+					{
+						merge[index] = DT265A[i];
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", merge[index].name);
+						index++;
+					}	//end for
+
+					for (k = 0; k < 9; k++)
+					{
+						merge[index] = DT265C[k];
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", merge[index].name);
+						index++;
+					}	//end for
+
+					for (m = 0; m < 14; m++)
+					{
+						merge[index] = DT265B[m];
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", merge[index].name);
+						index++;
+					}	//end for
+
+					for (q = 0; q < 6; q++)
+					{
+						merge[index] = DT8900[q];
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", merge[index].name);
+						index++;
+					}	//end for
+					printf("\n\t+----------+");
+
+					//Sorting the full list by surname using Bubblesort
+					printf("\n*************************Sorted List*************************");
+					for (m = 0; m < 42; m++)
+					{
+						for (n = m + 1; n < 42; n++)
+						{
+							if (strcmp(merge[m].name, merge[n].name) > 0)
+							{
+								temp2 = merge[m];
+								merge[m] = merge[n];
+								merge[n] = temp2;
+							}	//end if
+						}	//end inner for
+					}	//end for
+
+					//Sorted data after rearrangement
+					printf("\n\nSorted list by Surname.");
+					for (m = 0; m < 42; m++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", merge[m].name);
+					}	//end for  
+					printf("\n\t+----------+");
+
+					break;
+				}	//end case 2
+
+			case 3:
+				{
+					//To search for all full time students
+					printf("\nThe list of all full time students are: \n");
+					/*--------------------------------------------*/
+
+					printf("\nDT265B - full time Mater's Qualifiers'");
+					for (m = 0; m < SIZE_3; m++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT265B[m].name);
+					}	//end for  
+					printf("\n\t+----------+");
+
+					/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					/*--------------------------------------------*/
+
+					printf("\nDT8900 - full time International Mater's Qualifiers'");
+					for (q = 0; q < SIZE_4; q++)
+					{
+						printf("\n\t+----------+");
+						printf("\n\t|%-10s|", DT8900[q].name);
+					}	//end for
+					printf("\n\t+----------+");
+
+					break;
+
+				}	//end case
+
+			case 4:
+				{
+				    int flag;
+				    
+				//To search for a specific student by surname
+					printf("\nEnter student surname to be searched: ");
+					scanf("%s", &search_name);
+					printf("\n");
+				
+                     //Compairing the string
+					for (m = 0; m < 42; m++)
+					{
+					    if(strcmp(merge[m].name, search_name) == 0)
+					    {
+					        printf("\nMatched Student: %s", search_name);
+					        flag = 0;
+					        break;
+					    }//end if
+					    
+					}//end for
+					if(flag == 0)
+					{
+					    printf("\nWrong Student Name.");
+					}//end if
+				
+				   
+					break;
+				}	//end case 4
+
+			case 0:
+				{
+					printf("\nExiting...............Program End.");
+					break;
+				}	//end case 0
+
+			default:
+				{
+					printf("\nInvalid Input. Please try again...");
+				}	//end default case
+
+		}	//end switch
+	} while (choice != 0);
+
+	return 0;
+
+}	//end main
